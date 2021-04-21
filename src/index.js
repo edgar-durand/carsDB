@@ -28,6 +28,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import ThemeContextWrapper from "./components/ThemeWrapper/ThemeWrapper";
 import BackgroundColorWrapper from "./components/BackgroundColorWrapper/BackgroundColorWrapper";
+import Icons from "./views/Icons";
 
 ReactDOM.render(
   <ThemeContextWrapper>
@@ -35,6 +36,7 @@ ReactDOM.render(
       <BrowserRouter>
         <Switch>
           <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+          <Route path="/icons" render={(props) => <Icons {...props} />} />
           <Redirect from="/" to="/admin/dashboard" />
         </Switch>
       </BrowserRouter>

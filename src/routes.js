@@ -16,15 +16,13 @@
 
 */
 import Dashboard from "views/Dashboard.js";
-import Icons from "views/Icons.js";
-import Notifications from "views/Notifications.js";
 import TableList from "./views/vehicles/TableList.js";
 import UserProfile from "views/UserProfile.js";
 import i18n from "./i18n";
 
 
 let Routes = () => {
-        const {dashboard, notifications, 'user-profile': userProfile, tables} = sessionStorage.getItem('locale') ?
+        const {dashboard, 'user-profile': userProfile, tables} = sessionStorage.getItem('locale') ?
             JSON.parse(sessionStorage.getItem(sessionStorage.getItem('locale')))['header']['title'] :
             i18n[i18n.default]['header']['title'];
     return ([
@@ -37,19 +35,11 @@ let Routes = () => {
             layout: "/admin",
         },
         {
-            path: "/icons",
-            name: "Icons",
-            rtlName: "الرموز",
-            icon: "tim-icons icon-atom",
-            component: Icons,
-            layout: "/admin",
-        },
-        {
-            path: "/notifications",
-            name: notifications,
-            rtlName: "إخطارات",
-            icon: "tim-icons icon-bell-55",
-            component: Notifications,
+            path: "/tables",
+            name: tables,
+            rtlName: "قائمة الجدول",
+            icon: "tim-icons icon-bus-front-12",
+            component: TableList,
             layout: "/admin",
         },
         {
@@ -59,15 +49,7 @@ let Routes = () => {
             icon: "tim-icons icon-single-02",
             component: UserProfile,
             layout: "/admin",
-        },
-        {
-            path: "/tables",
-            name: tables,
-            rtlName: "قائمة الجدول",
-            icon: "tim-icons icon-puzzle-10",
-            component: TableList,
-            layout: "/admin",
-        },
+        }
     ])
 };
 export default Routes;

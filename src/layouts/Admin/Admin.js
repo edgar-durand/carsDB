@@ -37,7 +37,8 @@ var ps;
 function Admin(props) {
     const location = useLocation();
     const mainPanelRef = React.useRef(null);
-    const [lang,setLang] = React.useState(sessionStorage.getItem('locale') ?? i18n.default);
+    const [lang, setLang] = React.useState(sessionStorage.getItem('locale') ?? i18n.default);
+    const [search, setSearch] = React.useState('');
     const [sidebarOpened, setsidebarOpened] = React.useState(
         document.documentElement.className.indexOf("nav-open") !== -1
     );
@@ -76,10 +77,14 @@ function Admin(props) {
         }
     }, [location]);
     // this function opens and closes the sidebar on small devices
-    const handleLocale = (locale) =>{
+    const handleLocale = (locale) => {
         sessionStorage.setItem('locale', locale);
-        sessionStorage.setItem(locale,JSON.stringify(i18n[locale]));
+        sessionStorage.setItem(locale, JSON.stringify(i18n[locale]));
         setLang(locale);
+    };
+    const handleSearch = (searchStr) => {
+            sessionStorage.setItem('search',searchStr);
+            setSearch(searchStr);
     };
     const toggleSidebar = () => {
         document.documentElement.classList.toggle("nav-open");
@@ -90,9 +95,10 @@ function Admin(props) {
             if (prop.layout === "/admin") {
                 return (
                     <Route
+                        search={search}
                         path={prop.layout + prop.path}
                         component={prop.component}
-                        key={key}
+                        key={key + prop.layout + prop.path}
                     />
                 );
             } else {
@@ -108,18 +114,16 @@ function Admin(props) {
         }
         return "Brand";
     };
-    const getPath = (path) =>{
+    const getPath = (path) => {
         for (let i = 0; i < routes().length; i++) {
             if (path.indexOf(routes()[i].layout + routes()[i].path) !== -1) {
-                return routes()[i].path.replace('/','');
+                return routes()[i].path.replace('/', '');
             }
         }
         return "Brand";
     };
 
-    const brand = sessionStorage.getItem('locale')?
-        JSON.parse(sessionStorage.getItem(sessionStorage.getItem('locale')))['header']['title'][getPath(location.pathname)] :
-        i18n[lang]['header']['title'][getPath(location.pathname)];
+    const brand = i18n._language(`header.title.${getPath(location.pathname)}`);
     return (
         <BackgroundColorContext.Consumer>
             {({color, changeColor}) => (
@@ -136,8 +140,9 @@ function Admin(props) {
                         />
                         <div className="main-panel" ref={mainPanelRef} data={color}>
                             <AdminNavbar
+                                handleSearch={(searchStr) => handleSearch(searchStr)}
                                 lang={lang}
-                                brandText={ brand ?? getBrandText(location.pathname) }
+                                brandText={brand ?? getBrandText(location.pathname)}
                                 toggleSidebar={toggleSidebar}
                                 sidebarOpened={sidebarOpened}
                             />
@@ -151,7 +156,8 @@ function Admin(props) {
                             }
                         </div>
                     </div>
-                    <FixedPlugin handleLocale={(locale)=>handleLocale(locale)} bgColor={color} handleBgClick={changeColor}/>
+                    <FixedPlugin handleLocale={(locale) => handleLocale(locale)} bgColor={color}
+                                 handleBgClick={changeColor}/>
                 </React.Fragment>
             )}
         </BackgroundColorContext.Consumer>

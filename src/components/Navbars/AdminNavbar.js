@@ -27,7 +27,6 @@ import {
     DropdownMenu,
     DropdownItem,
     UncontrolledDropdown,
-    Input,
     InputGroup,
     NavbarBrand,
     Navbar,
@@ -39,6 +38,7 @@ import {
     ModalHeader,
 } from "reactstrap";
 import i18n from "../../i18n";
+import {Link} from "react-router-dom";
 
 function AdminNavbar(props) {
     const [collapseOpen, setcollapseOpen] = React.useState(false);
@@ -72,9 +72,15 @@ function AdminNavbar(props) {
     const toggleModalSearch = () => {
         setmodalSearch(!modalSearch);
     };
+    // const handleClose = ()=>{
+    //     props.handleSearch();
+    //     sessionStorage.removeItem('search');
+    // };
     const {lang} = props;
-    const {search, account} = sessionStorage.getItem('locale') ? JSON.parse(sessionStorage.getItem(sessionStorage.getItem('locale')))['header'] : i18n[lang]['header'];
-    const {notifications, "user-profile": profile} = sessionStorage.getItem('locale') ? JSON.parse(sessionStorage.getItem(sessionStorage.getItem('locale')))['header']['title'] : i18n[lang]['header']['title'];
+    const search = i18n._language('header.search');
+    const account = i18n._language('header.account', {name: "Username"});
+
+    const profile = i18n._language('header.title.user-profile');
     const {logOut} = sessionStorage.getItem('locale') ? JSON.parse(sessionStorage.getItem(sessionStorage.getItem('locale')))['header']['dropDown'] : i18n[lang]['header']['dropDown'];
     return (
         <>
@@ -105,49 +111,49 @@ function AdminNavbar(props) {
                         <Nav className="ml-auto" navbar>
                             <InputGroup className="search-bar">
                                 <Button color="link" onClick={toggleModalSearch}>
-                                    <i className="tim-icons icon-zoom-split"/>
-                                    <span className="d-lg-none d-md-block">{search}</span>
+                                    <Link to={"/admin/tables"}><i className="tim-icons icon-zoom-split"/>
+                                        <span className="d-lg-none d-md-block">{search}</span></Link>
                                 </Button>
                             </InputGroup>
-                            <UncontrolledDropdown nav>
-                                <DropdownToggle
-                                    caret
-                                    color="default"
-                                    data-toggle="dropdown"
-                                    nav
-                                >
-                                    <div className="notification d-none d-lg-block d-xl-block"/>
-                                    <i className="tim-icons icon-bell-55"/>
-                                    <p className="d-lg-none">{notifications}</p>
-                                </DropdownToggle>
-                                <DropdownMenu className="dropdown-navbar" right tag="ul">
-                                    <NavLink tag="li">
-                                        <DropdownItem className="nav-item">
-                                            Mike John responded to your email
-                                        </DropdownItem>
-                                    </NavLink>
-                                    <NavLink tag="li">
-                                        <DropdownItem className="nav-item">
-                                            You have 5 more tasks
-                                        </DropdownItem>
-                                    </NavLink>
-                                    <NavLink tag="li">
-                                        <DropdownItem className="nav-item">
-                                            Your friend Michael is in town
-                                        </DropdownItem>
-                                    </NavLink>
-                                    <NavLink tag="li">
-                                        <DropdownItem className="nav-item">
-                                            Another notification
-                                        </DropdownItem>
-                                    </NavLink>
-                                    <NavLink tag="li">
-                                        <DropdownItem className="nav-item">
-                                            Another one
-                                        </DropdownItem>
-                                    </NavLink>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
+                            {/*<UncontrolledDropdown nav>*/}
+                            {/*    <DropdownToggle*/}
+                            {/*        caret*/}
+                            {/*        color="default"*/}
+                            {/*        data-toggle="dropdown"*/}
+                            {/*        nav*/}
+                            {/*    >*/}
+                            {/*        <div className="notification d-none d-lg-block d-xl-block"/>*/}
+                            {/*        <i className="tim-icons icon-bell-55"/>*/}
+                            {/*        <p className="d-lg-none">{notifications}</p>*/}
+                            {/*    </DropdownToggle>*/}
+                            {/*    <DropdownMenu className="dropdown-navbar" right tag="ul">*/}
+                            {/*        <NavLink tag="li">*/}
+                            {/*            <DropdownItem className="nav-item">*/}
+                            {/*                Mike John responded to your email*/}
+                            {/*            </DropdownItem>*/}
+                            {/*        </NavLink>*/}
+                            {/*        <NavLink tag="li">*/}
+                            {/*            <DropdownItem className="nav-item">*/}
+                            {/*                You have 5 more tasks*/}
+                            {/*            </DropdownItem>*/}
+                            {/*        </NavLink>*/}
+                            {/*        <NavLink tag="li">*/}
+                            {/*            <DropdownItem className="nav-item">*/}
+                            {/*                Your friend Michael is in town*/}
+                            {/*            </DropdownItem>*/}
+                            {/*        </NavLink>*/}
+                            {/*        <NavLink tag="li">*/}
+                            {/*            <DropdownItem className="nav-item">*/}
+                            {/*                Another notification*/}
+                            {/*            </DropdownItem>*/}
+                            {/*        </NavLink>*/}
+                            {/*        <NavLink tag="li">*/}
+                            {/*            <DropdownItem className="nav-item">*/}
+                            {/*                Another one*/}
+                            {/*            </DropdownItem>*/}
+                            {/*        </NavLink>*/}
+                            {/*    </DropdownMenu>*/}
+                            {/*</UncontrolledDropdown>*/}
                             <UncontrolledDropdown nav>
                                 <DropdownToggle
                                     caret
@@ -182,9 +188,13 @@ function AdminNavbar(props) {
                 modalClassName="modal-search"
                 isOpen={modalSearch}
                 toggle={toggleModalSearch}
+                // onClosed={() => handleClose()}
             >
                 <ModalHeader>
-                    <Input placeholder={search.toUpperCase()} type="text"/>
+                    <input className="form-control" placeholder={search.toUpperCase()}
+                           autoFocus={true}
+                           defaultValue={sessionStorage.getItem('search')?sessionStorage.getItem('search'):null}
+                           onChange={(event) => props.handleSearch(event.target.value)} type="text"/>
                     <button
                         aria-label="Close"
                         className="close"
