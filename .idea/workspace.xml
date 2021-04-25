@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c2367641-b65f-4c8c-9f62-3d5ffed1f698" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbars/AdminNavbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbars/AdminNavbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/i18n.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Admin/Admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Admin/Admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/vehicles/TableList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/vehicles/TableList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/vehicles/vehiclesDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/vehicles/vehiclesDB.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +17,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
@@ -53,19 +51,23 @@
     </option>
   </component>
   <component name="ProjectId" id="1rDmv2GGw2JiCUvNL2MTCF4cFdW" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="application.passwordSafe" />
     <property name="ts.external.directory.path" value="D:\Proyectos\REACT\CarDB\black-dashboard-react-master\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
@@ -113,7 +115,9 @@
       <updated>1618519262549</updated>
       <workItem from="1618519274699" duration="817000" />
       <workItem from="1618650547054" duration="35189000" />
-      <workItem from="1618733346810" duration="77487000" />
+      <workItem from="1618733346810" duration="78970000" />
+      <workItem from="1619124379730" duration="879000" />
+      <workItem from="1619192006218" duration="604000" />
     </task>
     <servers />
   </component>
@@ -125,41 +129,54 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1618761296476">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1618761296476" />
-    <state width="1509" height="200" key="GridCell.Tab.0.bottom" timestamp="1618922581185">
+    <state width="1509" height="200" key="GridCell.Tab.0.bottom" timestamp="1619199755482">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1509" height="197" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618520170687" />
-    <state width="1509" height="200" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1618922581185" />
-    <state width="1509" height="200" key="GridCell.Tab.0.center" timestamp="1618922581185">
+    <state width="1509" height="200" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1619199755482" />
+    <state width="1509" height="200" key="GridCell.Tab.0.center" timestamp="1619199755482">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1509" height="197" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1618520170687" />
-    <state width="1509" height="200" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1618922581185" />
-    <state width="1509" height="200" key="GridCell.Tab.0.left" timestamp="1618922581185">
+    <state width="1509" height="200" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1619199755482" />
+    <state width="1509" height="200" key="GridCell.Tab.0.left" timestamp="1619199755482">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1509" height="197" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1618520170687" />
-    <state width="1509" height="200" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1618922581185" />
-    <state width="1509" height="200" key="GridCell.Tab.0.right" timestamp="1618922581185">
+    <state width="1509" height="200" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1619199755482" />
+    <state width="1509" height="200" key="GridCell.Tab.0.right" timestamp="1619199755482">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1509" height="197" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1618520170687" />
-    <state width="1509" height="200" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1618922581185" />
+    <state width="1509" height="200" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1619199755482" />
+    <state x="161" y="0" key="SettingsEditor" timestamp="1618992945260">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="161" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1618992945260" />
     <state x="612" y="316" key="VCS.ChangelistChooser" timestamp="1618761197608">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="612" y="316" key="VCS.ChangelistChooser/0.0.1536.834@0.0.1536.834" timestamp="1618761197608" />
+    <state x="261" y="85" key="Vcs.Push.Dialog.v2" timestamp="1618992566337">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="261" y="85" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1618992566337" />
     <state x="341" y="186" key="run.anything.popup" timestamp="1618754751337">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

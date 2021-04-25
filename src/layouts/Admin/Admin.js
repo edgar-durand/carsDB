@@ -78,9 +78,12 @@ function Admin(props) {
     }, [location]);
     // this function opens and closes the sidebar on small devices
     const handleLocale = (locale) => {
-        sessionStorage.setItem('locale', locale);
-        sessionStorage.setItem(locale, JSON.stringify(i18n[locale]));
-        setLang(locale);
+        if(i18n[locale]){
+            sessionStorage.setItem('locale', locale);
+            sessionStorage.setItem(locale, JSON.stringify(i18n[locale]));
+            setLang(locale);
+        }
+        
     };
     const handleSearch = (searchStr) => {
             sessionStorage.setItem('search',searchStr);
