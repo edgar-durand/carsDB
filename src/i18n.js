@@ -1,17 +1,4 @@
-const i18n = {
-    _language(path = '', param = {}) {
-        let lang = sessionStorage.getItem('locale') ?
-            JSON.parse(sessionStorage.getItem(sessionStorage.getItem('locale'))) :
-            this[this.default];
-        path && path.split('.').forEach(current => lang = lang[current] ? lang[current] : lang);
-
-        if (param)
-            for (let key in param) lang = lang.includes(`{${key}}`) ? lang.replace(`{${key}}`, param[key]) : lang;
-
-
-        return lang
-    },
-    default: DEFAULT,
+const languages = {
     'es-ES': {
         'header': {
             "title": {
@@ -56,10 +43,23 @@ const i18n = {
             "forA": "para un trabajo confortable.",
             "text": "Saludos,%le%contacto%por%motivo%de"
         },
+    }
+}
+const i18n = {
+    _language(path = '', param = {}) {
+        let lang = sessionStorage.getItem('locale') ?
+            JSON.parse(sessionStorage.getItem(sessionStorage.getItem('locale'))) :
+            this[this.default];
+        path && path.split('.').forEach(current => lang = lang[current] ? lang[current] : lang);
 
+        if (param)
+            for (let key in param) lang = lang.includes(`{${key}}`) ? lang.replace(`{${key}}`, param[key]) : lang;
+
+
+        return lang
     },
-
+    default: languages[navigator.language] ? navigator.language : 'es-ES',
+    ...languages
 };
-var DEFAULT = i18n[navigator.language] ? navigator.language : "es-ES";
 
 export default i18n;
