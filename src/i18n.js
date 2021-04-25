@@ -11,7 +11,7 @@ const i18n = {
 
         return lang
     },
-    default: navigator.language ?? "es-ES",
+    default: i18n[navigator.language] ? navigator.language : "es-ES",
     'es-ES': {
         'header': {
             "title": {
