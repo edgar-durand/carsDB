@@ -11,7 +11,7 @@ const i18n = {
 
         return lang
     },
-    default: [navigator.language] ? navigator.language : "es-ES",
+    default: DEFAULT,
     'es-ES': {
         'header': {
             "title": {
@@ -60,4 +60,6 @@ const i18n = {
     },
 
 };
+var DEFAULT = i18n[navigator.language] ? navigator.language : "es-ES";
+
 export default i18n;
